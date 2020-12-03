@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const Workout = require("../models").Workout
+const Workout = require("../models/workout.js")
 
 router.get("/api/workouts", (req, res) => {
   Workout.find()
@@ -22,7 +22,6 @@ router.post("/api/workouts", (req, res) => {
     day: Date.now()
   })
     .then(newWorkout => {
-      console.log("I am the created workout: ", newWorkout);
       res.json(newWorkout);
     })
     .catch(err => res.json(err));
